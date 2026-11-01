@@ -1,5 +1,7 @@
 # CountCheck
 
+[![Verify CountCheck](https://github.com/VJ-veshwikjain2215/CountCheck/actions/workflows/ci.yml/badge.svg)](https://github.com/VJ-veshwikjain2215/CountCheck/actions/workflows/ci.yml)
+
 A website for comparing recorded inventory with physical counts, keeping private business workspaces and a timestamped observation history.
 
 **Live website:** https://countcheck.embarko.app

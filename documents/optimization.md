@@ -30,4 +30,4 @@ No unrestricted claim that every possible performance issue has been eliminated 
 - Catalog/search bounds and a 601-row export across database batches passed.
 - V3 catalog/mismatch indexes were applied to production after validation.
 - The optimized Embarko release passed 33 live HTTP workflow/security/cache checks; synthetic workspaces were removed.
-- The public application/documentation repository is being pushed with the existing repository permission. The CI workflow is retained as a separate local commit pending GitHub workflow-scope authorization; GitHub CI has not run yet.
+- Application code, documentation and the CI workflow are pushed to the public [CountCheck repository](https://github.com/VJ-veshwikjain2215/CountCheck). GitHub workflow authorization completed and [the Java 21 / PostgreSQL CI run](https://github.com/VJ-veshwikjain2215/CountCheck/actions/runs/41328469886) passed.

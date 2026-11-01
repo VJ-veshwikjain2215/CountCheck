@@ -20,7 +20,8 @@
 - [ ] Validate production proxy behavior, chunked form limits, cold starts, memory use, and rate limits. Configure suitable network/edge abuse controls.
 - [x] Verify lost commit acknowledgement and conflicting inserts when the first transaction commits or rolls back, using real local PostgreSQL.
 - [x] Restore a local PostgreSQL dump into a new disposable database and verify application table counts and migrations.
-- [ ] Build/run the Docker image and execute CI on the chosen remote repository. Docker's engine was unavailable locally; those paths are prepared but not reported as tested.
+- [x] Execute Java 21/PostgreSQL verification in GitHub Actions on the public CountCheck repository.
+- [ ] Build/run the Docker image locally. The Docker engine was unavailable; Docker execution is not reported as tested.
 - [x] Verify restricted runtime database permissions.
 - [ ] Configure live alerting and establish support/on-call procedures.
 - [ ] Reassess one-owner scope and recovery-code UX before inviting customers. Email verification/recovery, integrations, teams and multi-instance session coordination are not part of this first release.
