@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a reproducible CountCheck problem using synthetic data
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "For vulnerabilities, use the Security tab. Do not include real inventory, credentials, recovery codes or personal data."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the affected page and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Sign in to a test workspace
+        2. Add a fictional product
+        3. Record a count
+        4. Observe...
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Browser/device, or Java/PostgreSQL version and commit for a local run
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or additional context
+      description: Remove all business information and secrets first.

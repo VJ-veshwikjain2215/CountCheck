@@ -1,0 +1,23 @@
+name: Improvement idea
+description: Suggest one focused improvement to CountCheck
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What problem would this solve?
+      description: Describe the user need using fictional examples.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the change and any alternatives you considered.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: How could we verify it works?
+      description: Suggest an example or acceptance criterion.

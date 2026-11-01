@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="title desc">
+<title id="title">CountCheck — Every count matters</title><desc id="desc">A green CountCheck project banner with recorded and physical count symbols. This is a brand illustration.</desc>
+<rect width="1280" height="360" rx="20" fill="#234b37"/><path d="M930 0h350v360H930z" fill="#2d5840"/><g fill="none" stroke="#628359" opacity=".28"><path d="M930 0v360m70-360v360m70-360v360m70-360v360m70-360v360M930 60h350M930 120h350M930 180h350M930 240h350M930 300h350"/></g>
+<rect x="60" y="55" width="50" height="50" rx="13" fill="#d7edb4"/><path d="m72 80 10 10 18-23" fill="none" stroke="#234b37" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="132" y="90" fill="#f5f8ee" font-family="Arial,sans-serif" font-size="36" font-weight="700">CountCheck.</text>
+<text x="60" y="182" fill="#f5f8ee" font-family="Arial,sans-serif" font-size="58" font-weight="700">Every count matters.</text>
+<text x="63" y="230" fill="#c6d7be" font-family="Arial,sans-serif" font-size="23">Bring your records and reality together.</text>
+<text x="63" y="297" fill="#d7edb4" font-family="Arial,sans-serif" font-size="14" letter-spacing="2">COMPARE · RECORD · REVIEW</text>
+<rect x="975" y="94" width="225" height="172" rx="15" fill="#f5f8ee"/><text x="997" y="131" fill="#6c7c61" font-family="Arial,sans-serif" font-size="12" letter-spacing="1">A CLEARER PICTURE</text><path d="m1002 180 15 15 26-35" fill="none" stroke="#426e45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M1070 170h105m-105 25h75" fill="none" stroke="#bac9af" stroke-width="8" stroke-linecap="round"/><text x="998" y="240" fill="#6c7c61" font-family="Arial,sans-serif" font-size="12">Private business workspaces</text>
+</svg>

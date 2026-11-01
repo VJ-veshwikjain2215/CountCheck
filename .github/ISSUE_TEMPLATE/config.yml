@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Open CountCheck
+    url: https://countcheck.embarko.app/
+    about: Use the live website.
+  - name: Report a vulnerability privately
+    url: https://github.com/VJ-veshwikjain2215/CountCheck/security/advisories/new
+    about: Keep vulnerabilities and sensitive information out of public issues.
