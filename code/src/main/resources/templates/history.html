@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Count history')}"></head>
+  <body class="app">
+    <a class="skip" href="#main">Skip to content</a>
+    <aside th:replace="~{fragments :: sidebar}"></aside>
+    <div class="app-body">
+      <header th:replace="~{fragments :: topbar}"></header>
+      <main id="main">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">A RECORD YOU CAN RETURN TO</p>
+            <h1>Count history<span>.</span></h1>
+            <p class="subheading">
+              Every observation, in order. All times are UTC.
+            </p>
+          </div>
+          <a class="button" href="/counts/new">＋ Record a count</a>
+        </div>
+        <section class="panel">
+          <div class="panel-heading">
+            <div class="tabs">
+              <a href="/counts" th:classappend="${!mismatch} ? selected"
+                >All counts</a
+              ><a
+                href="/counts?mismatch=true"
+                th:classappend="${mismatch} ? selected"
+                >Differences only</a
+              >
+            </div>
+            <a class="text-link" href="/counts/export.csv">↓ Export CSV</a>
+          </div>
+          <div class="table-wrap">
+            <table th:replace="~{fragments :: entries}"></table>
+          </div>
+          <div class="pagination">
+            <span class="muted">Up to 20 observations per page</span
+            ><a
+              th:if="${more}"
+              class="button secondary"
+              th:href="@{/counts(mismatch=${mismatch},before=${last.created},beforeId=${last.id})}"
+              >Next page →</a
+            >
+          </div>
+        </section>
+      </main>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </div>
+  </body>
+</html>

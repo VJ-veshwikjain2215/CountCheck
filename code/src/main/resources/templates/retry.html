@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Retry your count')}"></head>
+  <body>
+    <main class="prose">
+      <a class="brand" href="/">CountCheck.</a>
+      <h1>We could not confirm your save.</h1>
+      <p>
+        The entry may already be saved. Retry this exact entry to avoid
+        duplicates. Check your history before starting a new count.
+      </p>
+      <dl>
+        <dt>Recorded</dt>
+        <dd th:text="${recorded}"></dd>
+        <dt>Physical</dt>
+        <dd th:text="${physical}"></dd>
+        <dt>Note</dt>
+        <dd th:text="${note}"></dd>
+      </dl>
+      <form th:action="@{/counts}" method="post">
+        <input type="hidden" name="requestId" th:value="${requestId}" /><input
+          type="hidden"
+          name="productId"
+          th:value="${productId}"
+        /><input type="hidden" name="recorded" th:value="${recorded}" /><input
+          type="hidden"
+          name="physical"
+          th:value="${physical}"
+        /><input type="hidden" name="note" th:value="${note}" /><button
+          class="button"
+        >
+          Retry same entry
+        </button>
+      </form>
+      <p><a class="text-link" href="/counts">Check history</a></p>
+    </main>
+  </body>
+</html>

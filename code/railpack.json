@@ -1,0 +1,7 @@
+{
+  "provider": "java",
+  "deploy": {
+    "variables": { "SPRING_PROFILES_ACTIVE": "production" },
+    "startCommand": "java -Xmx96m -Xss512k -XX:+UseSerialGC -XX:MaxMetaspaceSize=96m -XX:ReservedCodeCacheSize=24m -XX:MaxDirectMemorySize=16m -jar target/countcheck-1.0.0.jar"
+  }
+}

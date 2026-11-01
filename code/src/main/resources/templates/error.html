@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head
+    th:replace="~{fragments :: head('Something needs a closer look')}"
+  ></head>
+  <body class="public">
+    <main class="error-page">
+      <a class="brand" href="/">CountCheck.</a>
+      <p class="eyebrow">LET'S TAKE ANOTHER LOOK</p>
+      <h1>We couldn't finish that.</h1>
+      <p
+        th:text="${message ?: 'The request could not be completed. Your session may have expired, or the request is unavailable. Sign in again or return to your workspace.'}"
+      ></p>
+      <div class="form-actions">
+        <a class="button secondary" href="/app">Go to workspace</a
+        ><a class="button" href="/counts/new">Recover a pending count ↗</a>
+      </div>
+    </main>
+  </body>
+</html>

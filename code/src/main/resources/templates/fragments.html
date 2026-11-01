@@ -1,0 +1,120 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="head(title)">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="${title} + ' · CountCheck'">CountCheck</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" />
+    <script th:src="@{/js/app.js}" defer></script>
+  </head>
+  <body>
+    <aside th:fragment="sidebar" class="sidebar">
+      <a class="brand" href="/app"><span class="mark">c✓</span> CountCheck.</a>
+      <div class="workspace">
+        <span class="avatar" th:text="${initial}">V</span>
+        <div>
+          <strong th:text="${member.business}">Your workspace</strong
+          ><small>Business workspace</small>
+        </div>
+      </div>
+      <p class="nav-label">WORKSPACE</p>
+      <nav aria-label="Main navigation">
+        <a href="/app" th:classappend="${page == 'overview'} ? active"
+          ><span>◫</span> Overview</a
+        ><a href="/products" th:classappend="${page == 'products'} ? active"
+          ><span>▦</span> Products</a
+        ><a href="/counts/new" th:classappend="${page == 'new'} ? active"
+          ><span>＋</span> New count</a
+        ><a href="/counts" th:classappend="${page == 'history'} ? active"
+          ><span>◷</span> Count history</a
+        >
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="tip">
+          <span class="eyebrow">A LITTLE CLARITY</span>
+          <p>Better counts.<br />Fewer surprises.</p>
+          <a href="/counts/new">Start a count ↗</a>
+        </div>
+        <a class="settings-link" href="/settings"
+          >⚙ &nbsp; Workspace settings</a
+        >
+        <form
+          th:action="@{/logout}"
+          method="post"
+          id="signout"
+          th:attr="data-workspace=${member.businessId}"
+        >
+          <button class="signout">Sign out ↗</button>
+        </form>
+      </div>
+    </aside>
+    <header th:fragment="topbar" class="topbar">
+      <span class="breadcrumb"
+        >Workspace / <span th:text="${member.business}">Business</span></span
+      ><a class="profile" href="/settings"
+        ><span class="avatar small" th:text="${initial}">V</span
+        ><span th:text="${member.name}">You</span></a
+      >
+    </header>
+    <div th:fragment="alerts">
+      <p class="alert success" th:if="${message}" th:text="${message}"></p>
+      <p class="alert" role="alert" th:if="${error}" th:text="${error}"></p>
+    </div>
+    <footer th:fragment="footer" class="footer">
+      <span>CountCheck / Made for the details.</span
+      ><a href="/privacy">Data &amp; privacy</a>
+    </footer>
+    <table th:fragment="entries" class="data-table">
+      <thead>
+        <tr>
+          <th>ITEM / SKU</th>
+          <th>LOCATION</th>
+          <th>RECORDED</th>
+          <th>PHYSICAL</th>
+          <th>DIFFERENCE</th>
+          <th>COUNTED AT (UTC)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="e : ${entries}">
+          <td>
+            <strong th:text="${e.name}"></strong
+            ><small th:text="${e.sku}"></small>
+          </td>
+          <td th:text="${e.location}"></td>
+          <td th:text="${e.recorded}"></td>
+          <td th:text="${e.physical}"></td>
+          <td>
+            <span
+              class="badge"
+              th:classappend="${e.delta == 0} ? matched : mismatch"
+              th:text="${e.difference}"
+            ></span>
+          </td>
+          <td class="date" th:text="${e.created}"></td>
+          <td>
+            <a th:href="@{/counts/{id}(id=${e.id})}" aria-label="View count"
+              >↗</a
+            >
+          </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(entries)}">
+          <td colspan="7">
+            <div class="empty">
+              <span class="empty-icon">◫</span>
+              <h3>A clear start.</h3>
+              <p>
+                Your count records will appear here. Add a product, then record
+                your first count.
+              </p>
+              <a href="/counts/new" class="button secondary"
+                >Record a count ↗</a
+              >
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

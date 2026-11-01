@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Create workspace')}"></head>
+  <body class="auth">
+    <section class="auth-story">
+      <a class="brand" href="/">CountCheck.</a>
+      <div>
+        <p class="eyebrow">A LITTLE MORE CLARITY, EVERY DAY.</p>
+        <h1>Know your stock.<br />Trust your<br /><em>next move.</em></h1>
+        <p>Your records and reality, brought together.</p>
+      </div>
+      <span>Made for the details.</span>
+    </section>
+    <main class="auth-main">
+      <div class="auth-form">
+        <p class="eyebrow">A FRESH PERSPECTIVE ON YOUR INVENTORY</p>
+        <h1>Your next good habit.</h1>
+        <p class="muted">Create a private workspace for your business.</p>
+        <p class="alert" role="alert" th:if="${error}" th:text="${error}"></p>
+        <form th:action="@{/register}" method="post">
+          <label for="name">Your name</label
+          ><input
+            id="name"
+            name="name"
+            autocomplete="name"
+            maxlength="80"
+            th:value="${name}"
+            required
+          /><label for="business">Business name</label
+          ><input
+            id="business"
+            name="business"
+            autocomplete="organization"
+            maxlength="80"
+            th:value="${business}"
+            required
+          /><label for="email">Email address</label
+          ><input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            maxlength="254"
+            th:value="${email}"
+            required
+          /><label for="password">Password</label
+          ><input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="new-password"
+            minlength="12"
+            required
+          /><small>At least 12 characters, up to 72 UTF-8 bytes.</small
+          ><button class="button full">Create workspace ↗</button>
+        </form>
+        <p class="auth-switch">
+          Already have an account? <a href="/login">Sign in</a>
+        </p>
+        <a class="fine privacy-link" href="/privacy">Data &amp; privacy</a>
+      </div>
+    </main>
+  </body>
+</html>

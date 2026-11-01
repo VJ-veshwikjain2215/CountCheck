@@ -1,0 +1,9 @@
+target/
+.env
+.env.*
+!.env.example
+.idea/
+*.log
+__pycache__/
+.neon
+node_modules/

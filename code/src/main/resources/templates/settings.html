@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Settings')}"></head>
+  <body class="app">
+    <a class="skip" href="#main">Skip to content</a>
+    <aside th:replace="~{fragments :: sidebar}"></aside>
+    <div class="app-body">
+      <header th:replace="~{fragments :: topbar}"></header>
+      <main id="main">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">YOUR WORKSPACE</p>
+            <h1>Settings<span>.</span></h1>
+          </div>
+        </div>
+        <div th:replace="~{fragments :: alerts}"></div>
+        <div class="split-layout">
+          <section class="panel form-panel">
+            <h2>Workspace details</h2>
+            <dl>
+              <dt>Business</dt>
+              <dd th:text="${member.business}"></dd>
+              <dt>Owner</dt>
+              <dd th:text="${member.name}"></dd>
+              <dt>Email</dt>
+              <dd th:text="${member.email}"></dd>
+            </dl>
+            <p class="muted">
+              Your workspace data is accessible through your account. Keep your
+              sign-in details private.
+            </p>
+          </section>
+          <section class="panel form-panel">
+            <h2>Change password</h2>
+            <form th:action="@{/settings}" method="post">
+              <label for="current">Current password</label
+              ><input
+                id="current"
+                name="current"
+                type="password"
+                autocomplete="current-password"
+                required
+              /><label for="password">New password</label
+              ><input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                minlength="12"
+                required
+              /><small>At least 12 characters. Up to 72 UTF-8 bytes.</small
+              ><button class="button full">Update password</button>
+            </form>
+          </section>
+        </div>
+        <section class="panel form-panel danger-zone">
+          <h2>Delete workspace</h2>
+          <p>
+            Permanently remove your account, products, and count history. Export
+            your counts first if needed. This action cannot be undone through
+            CountCheck.
+          </p>
+          <form th:action="@{/settings/delete}" method="post">
+            <label for="delete-password">Confirm with your password</label
+            ><input
+              id="delete-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            /><button class="button full">Permanently delete workspace</button>
+          </form>
+        </section>
+      </main>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </div>
+  </body>
+</html>

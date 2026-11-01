@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Overview')}"></head>
+  <body class="app">
+    <a class="skip" href="#main">Skip to content</a>
+    <aside th:replace="~{fragments :: sidebar}"></aside>
+    <div class="app-body">
+      <header th:replace="~{fragments :: topbar}"></header>
+      <main id="main">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">A CLEARER PICTURE OF YOUR STOCK</p>
+            <h1>Every count matters<span>.</span></h1>
+            <p class="subheading">
+              Know what you have. See what needs a closer look.
+            </p>
+          </div>
+          <a class="button" href="/counts/new">＋ Record a count</a>
+        </div>
+        <section class="stats" aria-label="Workspace summary">
+          <article>
+            <p>Total counts <span>◷</span></p>
+            <strong th:text="${stats.total}">0</strong
+            ><small>Across your workspace</small>
+          </article>
+          <article>
+            <p>Counts with a difference <span>↗</span></p>
+            <strong th:text="${stats.mismatches}">0</strong
+            ><small>Worth a second look</small>
+          </article>
+          <article>
+            <p>Product catalog <span>▦</span></p>
+            <strong th:text="${stats.products}">0</strong
+            ><small>Products ready to count</small>
+          </article>
+        </section>
+        <section class="count-banner">
+          <div class="banner-grid" aria-hidden="true">▦</div>
+          <div>
+            <span class="eyebrow">SMALL CHECKS. BETTER DECISIONS.</span>
+            <h2>Bring your records and reality together.</h2>
+            <p>
+              Compare your recorded stock with a physical count.<br />We'll keep
+              the difference in view.
+            </p>
+          </div>
+          <a class="button light" href="/counts/new">Start a new count ↗</a>
+        </section>
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Recent counts</h2>
+              <p>The latest checks across your workspace.</p>
+            </div>
+            <a class="text-link" href="/counts">View all history ↗</a>
+          </div>
+          <div class="table-wrap">
+            <table th:replace="~{fragments :: entries}"></table>
+          </div>
+        </section>
+        <div class="two-notes">
+          <p>✓ Your records stay in your workspace.</p>
+          <p>
+            Counts are snapshots. Review differences before adjusting stock.
+          </p>
+        </div>
+      </main>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </div>
+  </body>
+</html>

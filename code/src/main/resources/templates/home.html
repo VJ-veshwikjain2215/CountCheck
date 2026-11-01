@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Know your stock')}"></head>
+  <body class="public">
+    <header class="public-nav">
+      <a class="brand" href="/"><span class="mark">c✓</span> CountCheck.</a>
+      <nav>
+        <a href="/#how">How it works</a><a href="/login">Sign in</a
+        ><a class="button" href="/register">Get started ↗</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">LESS GUESSWORK. MORE CLARITY.</p>
+          <h1>Good business<br />starts with a<br /><em>better count.</em></h1>
+          <p>
+            Bring your stock records and your shelves into focus.<br />Simple
+            inventory checks. Clear differences. A history<br />you can come
+            back to.
+          </p>
+          <a class="button large" href="/register">Create your workspace ↗</a>
+          <p class="fine">Your business. Your records. Your space.</p>
+        </div>
+        <div class="hero-illustration">
+          <div class="illustration-label">● &nbsp; A CLEARER PICTURE</div>
+          <div class="stock-card">
+            <span class="eyebrow">COUNT / CLASSIC TOTE</span>
+            <div class="illustration-counts">
+              <div><small>Recorded</small><strong>48</strong></div>
+              <span>→</span>
+              <div><small>On the shelf</small><strong>45</strong></div>
+            </div>
+            <div class="sample-result">
+              <span>Worth a closer look</span><strong>−3</strong>
+            </div>
+          </div>
+          <div class="floating-note">
+            ✓ &nbsp; Small checks. Fewer surprises.
+          </div>
+          <span class="illustration-foot"
+            >ILLUSTRATIVE COUNT · NOT LIVE DATA</span
+          >
+        </div>
+      </section>
+      <section id="how" class="how">
+        <p class="eyebrow">A SIMPLE HABIT THAT ADDS UP</p>
+        <h2>From shelves to clarity.</h2>
+        <div class="three-cols">
+          <article>
+            <span>01 / ORGANIZE</span>
+            <h3>Give your items a home.</h3>
+            <p>Add products, SKUs, and locations to your business catalog.</p>
+          </article>
+          <article>
+            <span>02 / COMPARE</span>
+            <h3>Check records against reality.</h3>
+            <p>
+              Enter your recorded and physical counts. See the signed difference
+              instantly.
+            </p>
+          </article>
+          <article>
+            <span>03 / REVIEW</span>
+            <h3>Keep the full picture.</h3>
+            <p>
+              Review your history, focus on differences, and export observations
+              for follow-up.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="public-footer">
+      <span>CountCheck. / Made for the details.</span
+      ><a href="/privacy">Data &amp; privacy</a>
+    </footer>
+  </body>
+</html>

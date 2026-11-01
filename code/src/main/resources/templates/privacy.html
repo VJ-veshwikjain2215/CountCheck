@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Data and privacy')}"></head>
+  <body class="public">
+    <header class="public-nav">
+      <a class="brand" href="/"><span class="mark">c✓</span> CountCheck.</a>
+      <nav>
+        <a href="/#how">How it works</a><a href="/login">Sign in</a
+        ><a class="button" href="/register">Get started ↗</a>
+      </nav>
+    </header>
+    <main class="prose">
+      <p class="eyebrow">TRANSPARENCY FIRST</p>
+      <h1>Your data in CountCheck.</h1>
+      <p>
+        CountCheck stores account details (name, email, business name, and a
+        hashed password), product information, and count observations. Data is
+        associated with your business workspace and used to provide the
+        inventory counting service.
+      </p>
+      <h2>What gets stored in your browser?</h2>
+      <p>
+        A session cookie keeps you signed in. A pending count may be stored in
+        your current tab's session storage so you can recover an interrupted
+        save. It clears when the matching saved record is opened, or the tab's
+        session ends. Sign out and close the tab on shared devices.
+      </p>
+      <h2>Count records</h2>
+      <p>
+        Counts are observations, not automatic stock corrections. They remain
+        part of your workspace history. Avoid adding personal information or
+        sensitive notes to item fields.
+      </p>
+      <h2>Operator and hosting</h2>
+      <p>
+        CountCheck is operated by Veshwik Jain. For support or data requests,
+        contact
+        <a class="text-link" href="https://www.linkedin.com/in/veshwik-jain"
+          >Veshwik on LinkedIn</a
+        >. The website is hosted on Embarko and database records are stored in
+        Neon PostgreSQL in Singapore. The service operator and hosting providers
+        may have operational access; this is not end-to-end encrypted storage.
+      </p>
+      <h2>Retention and deletion</h2>
+      <p>
+        Workspace records remain until you delete the workspace in Settings.
+        Deletion removes the account, product and count records from the live
+        database. Neon's recovery history is currently configured for six hours;
+        deleted data may remain in that history until its window expires.
+        Provider operational logs follow their retention practices.
+      </p>
+      <p>
+        A separately scheduled backup service is not yet configured. Export
+        count history when you need an independent copy. Availability and
+        uninterrupted recovery are not guaranteed.
+      </p>
+      <h2>Account control</h2>
+      <p>
+        You can export count history, change your password, use your private
+        recovery code to recover access, or delete the workspace through
+        Settings. Keep your recovery code private. Updated 1 November 2026.
+      </p>
+      <a class="text-link" href="/">← Back home</a>
+    </main>
+  </body>
+</html>

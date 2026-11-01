@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Account recovery')}"></head>
+  <body class="public">
+    <main class="prose">
+      <a class="brand" href="/">CountCheck.</a>
+      <h1>Save your recovery code.</h1>
+      <p>
+        Your workspace is ready. Keep this code somewhere private: it can reset
+        your password and is shown only once. Losing both your password and this
+        code means you cannot recover your account through the website.
+      </p>
+      <p class="notice" th:text="${recovery}"></p>
+      <a class="button" href="/login">I saved my code. Sign in ↗</a>
+    </main>
+  </body>
+</html>

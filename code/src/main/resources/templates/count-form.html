@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('New count')}"></head>
+  <body class="app">
+    <a class="skip" href="#main">Skip to content</a>
+    <aside th:replace="~{fragments :: sidebar}"></aside>
+    <div class="app-body">
+      <header th:replace="~{fragments :: topbar}"></header>
+      <main id="main">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">FROM ASSUMPTION TO OBSERVATION</p>
+            <h1>Make it count<span>.</span></h1>
+            <p class="subheading">
+              Compare your records with what's actually on the shelf.
+            </p>
+          </div>
+        </div>
+        <div class="count-layout">
+          <section class="panel form-panel">
+            <div th:replace="~{fragments :: alerts}"></div>
+            <form action="/counts/new" method="get" class="catalog-search">
+              <label for="product-search">Find a product</label>
+              <div class="search-row">
+                <input
+                  id="product-search"
+                  name="q"
+                  maxlength="80"
+                  th:value="${q}"
+                  placeholder="Name or SKU starts with…"
+                /><button class="button secondary">Search</button>
+              </div>
+              <small>Showing up to 100 matching products.</small>
+            </form>
+            <p class="step-label">01 — COUNT DETAILS</p>
+            <div th:if="${#lists.isEmpty(products)}" class="empty">
+              <h2>No products found.</h2>
+              <p>Add a product or try another search.</p>
+              <a class="button" href="/products">Add your first product ↗</a>
+            </div>
+            <form
+              th:unless="${#lists.isEmpty(products)}"
+              th:action="@{/counts}"
+              method="post"
+              id="count-form"
+              th:attr="data-workspace=${member.businessId}"
+            >
+              <input type="hidden" name="requestId" th:value="${requestId}" />
+              <div id="restore" class="notice" hidden>
+                <p>
+                  You have an unfinished count. Restore it and review before
+                  saving.
+                </p>
+                <button
+                  type="button"
+                  id="restore-button"
+                  class="button secondary"
+                >
+                  Restore pending entry
+                </button>
+              </div>
+              <label for="productId">Product</label
+              ><select id="productId" name="productId" required>
+                <option value="">Choose a product</option>
+                <option
+                  th:each="p : ${products}"
+                  th:value="${p.id}"
+                  th:selected="${selectedProduct != null and selectedProduct == p.id}"
+                  th:attr="data-recorded=${p.recorded}"
+                  th:text="${p.name} + ' — ' + ${p.sku}"
+                ></option>
+              </select>
+              <div class="form-grid">
+                <div>
+                  <label for="recorded">Recorded count</label
+                  ><input
+                    id="recorded"
+                    name="recorded"
+                    th:value="${recorded}"
+                    inputmode="numeric"
+                    pattern="0|[1-9][0-9]{0,5}"
+                    required
+                    placeholder="0"
+                  /><small>What your records say</small>
+                </div>
+                <div>
+                  <label for="physical">Physical count</label
+                  ><input
+                    id="physical"
+                    name="physical"
+                    th:value="${physical}"
+                    inputmode="numeric"
+                    pattern="0|[1-9][0-9]{0,5}"
+                    required
+                    placeholder="0"
+                  /><small>What you counted</small>
+                </div>
+              </div>
+              <label for="note"
+                >Count note <span class="muted">(optional)</span></label
+              ><textarea
+                id="note"
+                name="note"
+                th:text="${note}"
+                maxlength="500"
+                rows="3"
+                placeholder="Add context for your future self…"
+              ></textarea>
+              <div class="form-actions">
+                <a href="/counts" class="text-link">Cancel</a
+                ><button class="button">Save count ↗</button>
+              </div>
+              <p class="fine">
+                Saved counts are permanent observations. They do not change your
+                reference inventory.
+              </p>
+            </form>
+          </section>
+          <aside class="count-help">
+            <div class="difference-card">
+              <p class="eyebrow">LIVE COMPARISON</p>
+              <output id="difference" aria-live="polite">—</output>
+              <p id="difference-caption">
+                Enter both counts to see the difference.
+              </p>
+              <div class="formula">Physical − Recorded = Difference</div>
+            </div>
+            <h3>A difference is a starting point.</h3>
+            <p>
+              A missing delivery, a misplaced item, or a record that needs a
+              second look. CountCheck helps you notice — you decide what comes
+              next.
+            </p>
+          </aside>
+        </div>
+      </main>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </div>
+  </body>
+</html>

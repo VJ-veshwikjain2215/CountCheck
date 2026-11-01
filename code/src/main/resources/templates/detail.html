@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments :: head('Count detail')}"></head>
+  <body class="app">
+    <a class="skip" href="#main">Skip to content</a>
+    <aside th:replace="~{fragments :: sidebar}"></aside>
+    <div class="app-body">
+      <header th:replace="~{fragments :: topbar}"></header>
+      <main id="main">
+        <a class="text-link" href="/counts">← Back to count history</a>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">SAVED OBSERVATION</p>
+            <h1 th:text="${entry.name}">Count detail</h1>
+            <p
+              class="subheading"
+              th:text="${entry.sku} + ' · ' + ${entry.location}"
+            ></p>
+          </div>
+          <span class="pill" th:text="'Record #' + ${entry.id}"></span>
+        </div>
+        <section
+          class="panel detail-panel"
+          th:attr="data-saved-key=${entry.requestId},data-workspace=${member.businessId}"
+        >
+          <div class="comparison">
+            <div>
+              <p>Recorded count</p>
+              <strong th:text="${entry.recorded}"></strong>
+            </div>
+            <div>
+              <p>Physical count</p>
+              <strong th:text="${entry.physical}"></strong>
+            </div>
+            <div>
+              <p>Difference</p>
+              <strong th:text="${entry.difference}"></strong>
+            </div>
+          </div>
+          <dl>
+            <dt>Counted by</dt>
+            <dd th:text="${entry.author}"></dd>
+            <dt>Saved at (UTC)</dt>
+            <dd th:text="${entry.created}"></dd>
+            <dt>Note</dt>
+            <dd
+              th:text="${entry.note.isEmpty()} ? 'No note added.' : ${entry.note}"
+            ></dd>
+          </dl>
+          <p class="notice">
+            This record captures a point in time. It does not adjust inventory.
+          </p>
+        </section>
+      </main>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </div>
+  </body>
+</html>

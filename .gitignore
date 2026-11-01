@@ -1,0 +1,23 @@
+# Credentials and local account/project settings
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+**/.neon
+code/embarko.json
+# Generated outputs and local data
+**/target/
+**/node_modules/
+**/__pycache__/
+*.pyc
+*.log
+*.dump
+*.db
+*.sqlite
+*.sqlite3
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
