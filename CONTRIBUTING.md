@@ -36,3 +36,9 @@ Describe the trigger, previous behavior, resulting behavior, and tests actually 
 Documentation and implementation notes belong in `documents/`; application code and tooling belong in `code/`.
 
 The owner has kept the current license status. Do not introduce or change licensing files as part of an unrelated contribution. Only contribute material you have the right to share.
+
+## Protected main branch
+
+Submit changes through a pull request. The GitHub Actions `verify` check must pass, the branch must be up to date with `main`, and review conversations must be resolved. These rules also apply to repository administrators. Force pushes and branch deletion are disabled. Like the owner's other protected repositories, no independent approval is mandatory, but stale approvals are dismissed when a change is pushed.
+
+CI runs for documentation-only changes too, so the required check is always reported. Do not skip CI with a commit-message directive on a pull request.

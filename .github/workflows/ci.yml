@@ -1,9 +1,5 @@
 name: Verify CountCheck
-on:
-  push:
-    paths: ["code/**", ".github/workflows/**"]
-  pull_request:
-    paths: ["code/**", ".github/workflows/**"]
+on: [push, pull_request]
 permissions:
   contents: read
 concurrency:
